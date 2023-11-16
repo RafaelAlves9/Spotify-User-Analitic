@@ -6,7 +6,10 @@ const baseUrl = ""; //api do backend
 
 const instances = {
   public: AxiosBuilder.build()
-    .withDefaultHeader()
+    .withHeaders({
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    })
     .toDomain()
     .initInstance(),
   private: AxiosBuilder.build()

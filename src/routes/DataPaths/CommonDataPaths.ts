@@ -8,6 +8,10 @@ type TRoutePath = {
 
 export const CommonDataPaths: TRoutePath[] = [
   {
+    path: "/callback",
+    element: CommonImports.Login
+  },
+  {
     path: "/not-found",
     element: CommonImports.NotFound
   },
