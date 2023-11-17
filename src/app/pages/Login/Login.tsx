@@ -1,16 +1,11 @@
-import { UserApplicationService } from "@service/UserApplication.service";
 import styles from "./Login.module.css";
+import UseLoginController from "./Login.controller";
 
 const Login = () => {
-    const userApplicationService = new UserApplicationService();
-
-    const Login = async () => {
-        const result: any = await userApplicationService.login();
-        console.log("result view", result);
-    };
+    const { Actions } = UseLoginController();
 
     return(
-        <h1 className={styles.styles} onClick={() => Login()}>
+        <h1 className={styles.styles} onClick={() => Actions.Login()}>
             Login
         </h1>
     );

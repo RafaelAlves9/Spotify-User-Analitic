@@ -1,11 +1,12 @@
 import { getLocalStorageProperty } from "../../src/utils/getLocalStorageProperty";
 import { AxiosBuilder } from "./axios.builder";
 
-const token = getLocalStorageProperty("user", "token");
-const baseUrl = ""; //api do backend
+const token = getLocalStorageProperty("application", "token");
+const baseUrl = "https://api.spotify.com/v1/"; //api do backend
 
 const instances = {
   public: AxiosBuilder.build()
+    .withUrl(baseUrl)
     .withHeaders({
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*"
@@ -16,16 +17,13 @@ const instances = {
     .withUrl(baseUrl)
     .withHeaders({
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
     })
-    .haveCredentials()
     .toDomain()
     .initInstance(),
   privateFile: AxiosBuilder.build()
     .withUrl(baseUrl)
     .withHeaders({
       "Content-Type": "multipart/form-data",
-      "Access-Control-Allow-Origin": "*"
     })
     .haveCredentials()
     .toDomain()

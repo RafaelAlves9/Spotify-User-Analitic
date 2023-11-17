@@ -12,6 +12,10 @@ export const CommonDataPaths: TRoutePath[] = [
     element: CommonImports.Login
   },
   {
+    path: "/login",
+    element: CommonImports.Login
+  },
+  {
     path: "/not-found",
     element: CommonImports.NotFound
   },

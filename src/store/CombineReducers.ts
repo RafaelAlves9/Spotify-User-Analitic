@@ -4,4 +4,5 @@ import * as Reducers from "./reducers/imports";
 export const rootReducer = combineReducers({
   loading: Reducers.loadingSlice,
   sideBar: Reducers.sideBarSlice,
+  userData: Reducers.userDataSlice,
 });

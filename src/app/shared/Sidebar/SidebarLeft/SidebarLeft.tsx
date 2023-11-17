@@ -16,7 +16,6 @@ const SidebarLeft = () => {
     const getCurrentParamRoute = () => {
         const segments = param.split('/');
         const lastParam = segments[segments.length - 1];
-        console.log(route);
 
         if(lastParam.length > 0){
             setRoute(lastParam);

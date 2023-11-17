@@ -1,4 +1,4 @@
-
 export interface IUserApplicationInterface {
-    login(): Promise<boolean>;
+    getAccessApplicationToken(code: string): Promise<void>;
+    getAccessUserToken(): Promise<void>;
 };
