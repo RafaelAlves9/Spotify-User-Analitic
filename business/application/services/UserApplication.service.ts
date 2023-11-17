@@ -4,6 +4,7 @@ import axios from "axios";
 import { getApplicationToken } from "@utils/JwtTokenMethods";
 import { useNavigate } from "react-router-dom";
 import { instances } from "@config/axios/axios.instances";
+import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 
 export class UserApplicationService extends Base implements IUserApplicationInterface {
     private _navigate = useNavigate();
@@ -31,7 +32,7 @@ export class UserApplicationService extends Base implements IUserApplicationInte
 
             if(result.status === 200){
                 const token = result.data.access_token;
-                const refreshToken = result.data.access_token;
+                const refreshToken = result.data.refresh_token;
                 const properties: any = { token, refreshToken };
                 instances.private.defaults.headers.common.Authorization = `Bearer ${token}`;
                 localStorage.setItem("application", JSON.stringify(properties));
@@ -59,6 +60,34 @@ export class UserApplicationService extends Base implements IUserApplicationInte
         document.location =" https://accounts.spotify.com/authorize?" + params.toString();
     };
 
+    async getAccessUserTokenByRefreshToken(): Promise<void> {
+        const refresh_token: string = getLocalStorageProperty("application", "refreshToken");
+        const params = new URLSearchParams({
+            grant_type: "refresh_token",
+            refresh_token: refresh_token,
+        });
+
+        try{
+            const result = await axios.post("https://accounts.spotify.com/api/token", params, {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    'Authorization': 'Basic ' + getApplicationToken(),
+                },
+            });
+
+            if(result.status === 200){
+                const token = result.data.access_token;
+                const refreshToken = result.data.refresh_token;
+                const properties: any = { token, refreshToken };
+                instances.private.defaults.headers.common.Authorization = `Bearer ${token}`;
+                localStorage.setItem("application", JSON.stringify(properties));
+            };
+        }
+        catch(error: any){
+            throw null;
+        };
+    };
+
     generateRandomString(length: number): string {
         let result = '';
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -69,4 +98,3 @@ export class UserApplicationService extends Base implements IUserApplicationInte
         return result;
     };
 };
-
