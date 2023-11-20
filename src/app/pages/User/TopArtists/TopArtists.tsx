@@ -18,7 +18,7 @@ const TopArtists = () => {
                             <div>
                                 <img src={artist.images[0].url} alt="" />
                             </div>
-                            <p>{artist.name}</p>
+                            <p>{index + 1}º {artist.name}</p>
                         </div>
                     )}
                 </div>
