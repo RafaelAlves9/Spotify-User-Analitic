@@ -1,12 +1,15 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
 :root{
-  --black: #000;
+  --black: #1A1A1A;
+  --black2: #1D1D1D;
+  --green: #1FDF64;
+  --green-hover: rgba(31, 223, 101, 0.251);
 }
 
 /* #region - estilização do scroll */

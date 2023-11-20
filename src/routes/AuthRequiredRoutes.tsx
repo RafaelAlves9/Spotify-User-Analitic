@@ -18,6 +18,7 @@ const AuthRequiredRoutes = ({ roleRoute }: props) => {
   };
 
   useEffect(() => {
+    console.log(roleRoute)
     isAuthorized();
   }, [token]);
 

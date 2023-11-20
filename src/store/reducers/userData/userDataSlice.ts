@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { TUserArtistItemSchemaResponse, TUserPerfilSchemaResponse, TUserTopArtistsSchemaResponse } from "@response/UserResponse";
+import { TUserPerfilSchemaResponse, TUserTopArtistsSchemaResponse } from "@response/UserResponse";
 
 type InitialState = {
   perfil: TUserPerfilSchemaResponse;

@@ -1,0 +1,41 @@
+.background{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    text-align: center;
+    width: 95%;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+.form > img{
+    width: 80%;
+    max-width: 10rem;
+}
+.form > h1{
+    font-size: 2.2rem;
+    font-weight: lighter;
+    color: #fff;
+}
+.form > button{
+    background-color: var(--green);
+    color: #fff;
+    padding: 1rem 7rem;
+    border-radius: 2rem;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+    cursor: pointer;
+}
+.form > button:hover{
+    background-color: var(--green-hover);
+}
+

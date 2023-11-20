@@ -1,0 +1,74 @@
+.background{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--black2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    padding: 2rem 0;
+    width: 95%;
+    max-width: 40rem;
+    text-align: center;
+}
+.card > h1{
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #fff;
+}
+.content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.content > div{
+    display: grid;
+    grid-template-rows: 7fr 1fr;
+    gap: .5rem;
+    overflow: hidden;
+}
+.content > div > p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+}
+.content > div > div{
+    border-radius: .5rem;
+    border: 3px solid var(--green);
+    overflow: hidden;
+}
+.content > div > div > img{
+    width: 100%;
+    height: 100%;
+}
+.navigate_button{
+    padding: 1rem 3rem;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid var(--green);
+    color: var(--green);
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.navigate_button:hover{
+    background-color: var(--green-hover);
+    color: #fff;
+}
+
+@media all and (min-width: 800px) {
+    .card > h1{
+        font-size: 1.5rem;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+    .navigate_button{
+        margin-top: 1rem;
+    }
+}
