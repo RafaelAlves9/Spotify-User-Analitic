@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Loading.module.css";
-import { useAppSelector } from "@store/Store";
+import { useAppSelector } from "@store/store";
 import LoadingGif from "@assets/loading.gif";
 
 type props = {
