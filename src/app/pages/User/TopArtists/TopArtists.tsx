@@ -1,5 +1,5 @@
 import styles from "./TopArtists.module.css";
-import { useAppSelector } from "@store/store";
+import { useAppSelector } from "@store/Store";
 import UseTopArtistsController from "./TopArtists.controller";
 
 const TopArtists = () => {

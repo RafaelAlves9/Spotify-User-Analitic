@@ -1,5 +1,5 @@
 import { UserService } from "@service/User.service";
-import { useAppSelector } from "@store/store";
+import { useAppSelector } from "@store/Store";
 import { useEffect } from "react";
 
 const UseTopArtistsController = () => {
