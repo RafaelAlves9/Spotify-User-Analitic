@@ -1,12 +1,11 @@
 import { UserApplicationService } from "@service/UserApplication.service";
-import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 import { useEffect } from "react";
 
 const UseLoginController = () => {
     const userApplicationService = new UserApplicationService();
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
-    const token = getLocalStorageProperty("application", "token");
+    // const token = getLocalStorageProperty("application", "token");
 
     const Login = async () => {
         await userApplicationService.getAccessUserToken();
@@ -17,7 +16,7 @@ const UseLoginController = () => {
     };
 
     useEffect(() => {
-        if(code === null || !!token) return;
+        if(code === null) return;
         settingUserAuthenticationToken(code);
     }, [code]);
 

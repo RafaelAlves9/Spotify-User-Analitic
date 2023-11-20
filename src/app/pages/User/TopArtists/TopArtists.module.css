@@ -44,6 +44,7 @@
     height: 100%;
 }
 .navigate_button{
+    margin-top: 1rem;
     padding: 1rem 3rem;
     background-color: transparent;
     outline: none;
@@ -67,8 +68,5 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
-    }
-    .navigate_button{
-        margin-top: 1rem;
     }
 }
