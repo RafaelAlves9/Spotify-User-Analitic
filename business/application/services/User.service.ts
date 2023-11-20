@@ -4,6 +4,7 @@ import { TUserPerfilSchemaResponse, TUserTopArtistsSchemaResponse } from "@respo
 import { useDispatch } from "react-redux";
 import { setArtistsUser, setMusicsUser, setPerfilUser } from "../../../src/store/reducers/userData/userDataSlice";
 import { UserApplicationService } from "./UserApplication.service";
+import { toastMessage } from "@utils/toastMessage";
 
 export class UserService extends Base implements IUserInterface {
     private _dispatch = useDispatch();
@@ -16,6 +17,8 @@ export class UserService extends Base implements IUserInterface {
             return result.data;
         }
         catch(error: any){
+            toastMessage("getPerfilUser", "error");
+            toastMessage(error.data, "error");
             throw error;
         };
     };
@@ -28,6 +31,8 @@ export class UserService extends Base implements IUserInterface {
             return result.data;
         }
         catch(error: any){
+            toastMessage("getTopArtistsByUser", "error");
+            toastMessage(error.data, "error");
             throw null;
         };
     };
