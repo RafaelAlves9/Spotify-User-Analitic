@@ -17,7 +17,7 @@ export default defineConfig({
       "@types": "/business/models/types",
       "@pages": "/src/app/pages",
       "@shared": "/src/app/shared",
-      "@store": "/src/Store",
+      "@store": "/src/store",
       "@assets": "/src/assets",
       "@src": "/src"
     },
