@@ -22,6 +22,7 @@ export class UserApplicationService extends Base implements IUserApplicationInte
             grant_type: "authorization_code",
             redirect_uri: redirect_uri
         });
+        
 
         try{
             const result = await axios.post("https://accounts.spotify.com/api/token", params, {
