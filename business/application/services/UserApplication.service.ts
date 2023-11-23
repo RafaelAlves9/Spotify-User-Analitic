@@ -8,12 +8,29 @@ import { getLocalStorageProperty } from "@utils/getLocalStorageProperty";
 
 export class UserApplicationService extends Base implements IUserApplicationInterface {
     private _navigate = useNavigate();
+
+    async getAccessUserToken(): Promise<void> {
+        const client_id: string = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+        const redirect_uri: string = "http://localhost:5173/callback";
+        // const redirect_uri: string = "https://spotify-analytic.vercel.app/callback";
+        const state: string = this.generateRandomString(16);
+        const scopes: string = "user-read-currently-playing user-top-read user-library-read";
+        const params = new URLSearchParams({
+            client_id: client_id,
+            response_type: "code",
+            redirect_uri: redirect_uri,
+            scope: scopes,
+            state: state
+        });
+
+        document.location =" https://accounts.spotify.com/authorize?" + params.toString();
+    };
     
     async getAccessApplicationToken(code: string): Promise<void> {
         const client_id: string = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
         const scopes: string = "user-read-currently-playing user-read-recently-played user-read-playback-state user-top-read user-modify-playback-state user-library-read playlist-read-private playlist-read-collaborative";  
-        // const redirect_uri: string = "http://localhost:5173/callback";
-        const redirect_uri: string = "https://spotify-analytic.vercel.app/callback";
+        const redirect_uri: string = "http://localhost:5173/callback";
+        // const redirect_uri: string = "https://spotify-analytic.vercel.app/callback";
         const params = new URLSearchParams({
             client_id: client_id,
             response_type: "code",
@@ -43,23 +60,6 @@ export class UserApplicationService extends Base implements IUserApplicationInte
         catch(error: any){
             throw null;
         };
-    };
-
-    async getAccessUserToken(): Promise<void> {
-        const client_id: string = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-        // const redirect_uri: string = "http://localhost:5173/callback";
-        const redirect_uri: string = "https://spotify-analytic.vercel.app/callback";
-        const state: string = this.generateRandomString(16);
-        const scopes: string = "user-read-currently-playing user-read-recently-played user-read-playback-state user-top-read user-modify-playback-state user-library-read playlist-read-private playlist-read-collaborative";  
-        const params = new URLSearchParams({
-            client_id: client_id,
-            response_type: "code",
-            redirect_uri: redirect_uri,
-            scope: scopes,
-            state: state
-        });
-
-        document.location =" https://accounts.spotify.com/authorize?" + params.toString();
     };
 
     async getAccessUserTokenByRefreshToken(): Promise<void> {

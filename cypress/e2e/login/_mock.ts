@@ -10,9 +10,15 @@ const clientInputInvalid = {
     email: 'rafael',
     password: 'dsasd'
 };
+const credentialToLoginSucess = {
+    redirect_uri: "/callback",
+    code: "abc",
+    token: "abc"
+};
 
 export const mock = {
     clientLoginSucess,
     clientLoginError,
-    clientInputInvalid
+    clientInputInvalid,
+    credentialToLoginSucess
 };

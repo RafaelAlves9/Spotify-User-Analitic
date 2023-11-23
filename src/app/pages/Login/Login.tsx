@@ -12,7 +12,9 @@ const Login = () => {
                 <form className={styles.form}>
                     <img src={Icon} alt="" />
                     <h1>Logue com sua conta Spotify e veja seus Artistar mais ouvidos!</h1>
-                    <button type="button" onClick={() => Actions.Login()}>LOGAR</button>
+                    <button type="button" id="login_button" onClick={() => Actions.Login()}>
+                        LOGAR
+                    </button>
                 </form>
             </div>
         </React.Fragment>

@@ -16,6 +16,7 @@ const UseLoginController = () => {
     };
 
     useEffect(() => {
+        console.log("url", code);
         if(code === null) return;
         settingUserAuthenticationToken(code);
     }, [code]);
